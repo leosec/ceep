@@ -29,8 +29,8 @@ export default class FormularioCadastro extends Component {
     render() {
         return (
             <form className="form-cadatro" onSubmit={this._criarNota.bind(this)}>
-                <input type="text" placeholder="Título" className="form-cadastro_input" onChange={this._handleMudancaTitulo.bind(this)} />
-                <textarea placeholder="Escreva sua nota..." rows={15} className="form-cadastro_input" onChange={this._hendleMudancaTexto.bind(this)}/>
+                <input type="text" required placeholder="Título" className="form-cadastro_input" onChange={this._handleMudancaTitulo.bind(this)} />
+                <textarea placeholder="Escreva sua nota..." required rows={15} className="form-cadastro_input" onChange={this._hendleMudancaTexto.bind(this)}/>
                 <button className="form-cadastro_input form-cadastro_submit">Criar Nota</button>
             </form>
         );
