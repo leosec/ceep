@@ -3,24 +3,29 @@ import "./estilo.css";
 
 class ListaDeCategorias extends Component {
 
-    
-    _handleEventoInput(e){
-        if(e.key == "Enter"){
+
+    _handleEventoInput(e) {
+        if (e.key == "Enter") {
             return (console.log(e.target.value));
         }
     }
 
-    
+
     render() {
 
         return (
             <section className="lista-categorias">
+
                 <ul className="lista-categorias_lista">
-                    <li className="lista-categorias_item">Categoria 1</li>
-                    <li className="lista-categorias_item">Categoria 1</li>
-                    <li className="lista-categorias_item">Categoria 1</li>
-                    <li className="lista-categorias_item">Categoria 1</li>
+                    {this.props.categorias.map((categoria, index) => {
+                        return (
+                            <li className="lista-categorias_item" key={index}>
+                                {categoria}
+                            </li>
+                        );
+                    })}
                 </ul>
+                
                 <input
                     type="text"
                     className="lista-categorias_input"
