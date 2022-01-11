@@ -6,7 +6,8 @@ class ListaDeCategorias extends Component {
 
     _handleEventoInput(e) {
         if (e.key == "Enter") {
-            return (console.log(e.target.value));
+            let valorCategoria = e.target.value;
+            this.props.adicionarCategoria(valorCategoria);
         }
     }
 
@@ -25,7 +26,7 @@ class ListaDeCategorias extends Component {
                         );
                     })}
                 </ul>
-                
+
                 <input
                     type="text"
                     className="lista-categorias_input"
