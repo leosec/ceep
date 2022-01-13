@@ -31,25 +31,30 @@ class App extends Component {
     this.setState({ notas: arrayNotas })
   }
 
-  novaCategoria(valorCategoria){
+  novaCategoria(valorCategoria) {
     const novoArayCategorias = [...this.state.categorias, valorCategoria];
-    const novoEstadoCat = {categorias:novoArayCategorias};
+    const novoEstadoCat = { categorias: novoArayCategorias };
     this.setState(novoEstadoCat);
   }
 
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro criarNota={this.criarNota.bind(this)} />
+        <FormularioCadastro
+          categorias={this.state.categorias} //Associação dinamica de categorias no formulário de cadastro
+          criarNota={this.criarNota.bind(this)}
+        />
         <main className="conteudo-principal">
 
-          <ListaDeCategorias 
-          adicionarCategoria={this.novaCategoria.bind(this)}
-          categorias={this.state.categorias}/>
+          <ListaDeCategorias
+            adicionarCategoria={this.novaCategoria.bind(this)}
+            categorias={this.state.categorias}
+          />
 
           <ListaDeNotas
             apagarNota={this.deletarNota.bind(this)}
-            notas={this.state.notas} />
+            notas={this.state.notas}
+          />
 
         </main>
       </section>
