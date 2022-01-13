@@ -13,7 +13,8 @@ export default class ListaDeNotas extends Component {
                             <CardNota 
                             indice={index}
                             apagarNota={this.props.apagarNota}
-                            titulo={nota.titulo} texto={nota.texto} />
+                            titulo={nota.titulo} texto={nota.texto}
+                            categoria={nota.categoria} />
                         </li>
                     );
                 })}
