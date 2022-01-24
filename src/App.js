@@ -19,19 +19,19 @@ class App extends Component {
     return (
       <section className="conteudo">
         <FormularioCadastro
-          categorias={this.categorias.categorias} //Associação dinamica de categorias no formulário de cadastro
-          criarNota={this.notas.criarNota}
+          categorias={this.categorias} //Associação dinamica de categorias no formulário de cadastro
+          criarNota={this.notas.criarNota.bind(this.notas)}
         />
         <main className="conteudo-principal">
 
           <ListaDeCategorias
-            adicionarCategoria={this.categorias.novaCategoria}
-            categorias={this.categorias.categorias}
+            adicionarCategoria={this.categorias.novaCategoria.bind(this.categorias)}
+            categorias={this.categorias}
           />
 
           <ListaDeNotas
-            apagarNota={this.notas.deletarNota}
-            notas={this.notas.notas}
+            apagarNota={this.notas.deletarNota.bind(this.notas)}
+            notas={this.notas}
           />
 
         </main>

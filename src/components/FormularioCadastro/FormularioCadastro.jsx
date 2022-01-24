@@ -7,7 +7,22 @@ export default class FormularioCadastro extends Component {
         super(props);
         this.titulo = "";
         this.texto = "";
-        this.categoria = "";
+        //this.categoria = "";
+        this.state = {categorias:[]}
+
+        this._ReferenciaNovaCategoria = this._novasCategorias.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.categorias.inscrever(this._ReferenciaNovaCategoria);
+    }
+
+    componentWillUnmount(){
+        this.props.categorias.desinscrever(this._ReferenciaNovaCategoria);
+    }
+
+    _novasCategorias(categorias){
+        this.setState({...this.state,categorias});
     }
 
     _handleMudancaCategoria(evento){
@@ -37,9 +52,9 @@ export default class FormularioCadastro extends Component {
             <form className="form-cadatro" onSubmit={this._criarNota.bind(this)}>
                 <select onChange={this._handleMudancaCategoria.bind(this)} className="form-cadastro_input">
                     <option>Sem Categoria</option>
-                    {this.props.categorias.map((categoria, index) => {
+                    {this.state.categorias.map((categoria, index) => {
                         return (
-                            <option>{categoria}</option>
+                            <option key={index}>{categoria}</option>
                         );
                     })}
                 </select>
